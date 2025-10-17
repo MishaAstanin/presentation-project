@@ -3,9 +3,17 @@ import styles from './UploadForm.module.css';
 
 type UploadFormProps = {
   onFilesSelected: (files: FileList) => void;
+  accept: string;
+  supportText: string;
+  multiple?: boolean;
 };
 
-const UploadForm: React.FC<UploadFormProps> = ({ onFilesSelected }) => {
+const UploadForm: React.FC<UploadFormProps> = ({
+  onFilesSelected,
+  accept,
+  supportText,
+  multiple,
+}) => {
   const inputRef = useRef<HTMLInputElement>(null);
   const [selectedFiles, setSelectedFiles] = useState<File[]>([]);
 
@@ -65,17 +73,17 @@ const UploadForm: React.FC<UploadFormProps> = ({ onFilesSelected }) => {
       </svg>
 
       <p className={styles.text}>Перетащите файл или нажмите кнопку ниже</p>
-      <p className={styles.subtext}>Поддерживается: .pdf, .txt, .pptx, .docx</p>
+      <p className={styles.subtext}>Поддерживается: {supportText}</p>
       <button type="button" className={styles.button} onClick={handleButtonClick}>
         Выбрать файлы
       </button>
       <input
         ref={inputRef}
         type="file"
-        multiple
+        multiple={multiple}
         className={styles.hiddenInput}
         onChange={handleFilesChange}
-        accept=".pdf,.txt,.pptx,.docx"
+        accept={accept}
       />
 
       {selectedFiles.length > 0 && (

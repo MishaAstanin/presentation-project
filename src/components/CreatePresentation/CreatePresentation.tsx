@@ -147,7 +147,12 @@ function CreatePresentation() {
 
       </div>
 
-      <UploadForm onFilesSelected={handleFilesSelected} />
+      <UploadForm
+        onFilesSelected={handleFilesSelected}
+        accept=".pdf,.txt,.pptx,.docx"
+        supportText=".pdf, .txt, .pptx, .docx"
+        multiple={true}
+      />
 
       <button className={styles.button} onClick={openAdvanced}>
         Продвинутые настройки
