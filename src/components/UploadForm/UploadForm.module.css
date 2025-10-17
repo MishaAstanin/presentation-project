@@ -1,0 +1,97 @@
+.dropzone {
+  border: 1px dashed #555;
+  border-radius: 8px;
+  background-color: #1e1e2f;
+  color: #bbb;
+  width: 100%;
+  max-width: 680px;
+  margin: 24px auto;
+  padding: 40px 20px;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  user-select: none;
+  transition: border-color 0.3s ease;
+}
+
+.dropzone:focus,
+.dropzone:hover {
+  border-color: #a75fff;
+}
+
+.icon {
+  stroke: #888;
+  margin-bottom: 16px;
+  transition: stroke 0.3s ease;
+}
+
+.dropzone:hover .icon {
+  stroke: #a75fff;
+}
+
+.text {
+  font-size: 16px;
+  margin-bottom: 4px;
+  color: #bbb;
+  font-weight: 500;
+}
+
+.subtext {
+  font-size: 13px;
+  margin-bottom: 20px;
+  color: #777;
+}
+
+.button {
+  padding: 8px 24px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #fff;
+  background: linear-gradient(90deg, #8a30ff, #a75fff);
+  border: none;
+  border-radius: 24px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  user-select: none;
+}
+
+.button:hover {
+  background: linear-gradient(90deg, #a75fff, #b885ff);
+}
+
+.hiddenInput {
+  display: none;
+}
+
+.fileList {
+  margin-top: 20px;
+  text-align: left;
+  color: #ccc;
+  font-size: 14px;
+  max-height: 150px;
+  overflow-y: auto;
+  border-top: 1px solid #444;
+  padding-top: 10px;
+}
+
+.fileList h4 {
+  margin-bottom: 8px;
+  color: #a75fff;
+  font-weight: 600;
+}
+
+.fileList ul {
+  list-style-type: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.fileList li {
+  padding: 4px 0;
+  border-bottom: 1px solid #333;
+  word-break: break-word;
+}
+
+.fileList li:last-child {
+  border-bottom: none;
+}

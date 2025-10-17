@@ -1,0 +1,131 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+  padding: 10px;
+}
+
+.modal {
+  background-color: #1e1e2f;
+  border-radius: 8px;
+  max-width: 700px;
+  width: 100%;
+  padding: 20px 30px;
+  color: #bbb;
+  font-family: Arial, sans-serif;
+  box-sizing: border-box;
+  max-height: 90vh;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #a75fff;
+  margin-bottom: 16px;
+}
+
+.row {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.field {
+  flex: 1;
+  min-width: 220px;
+  display: flex;
+  flex-direction: column;
+}
+
+.fieldCheckbox {
+  flex: 1;
+  min-width: 180px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: #eee;
+  cursor: pointer;
+}
+
+.select, textarea {
+  margin-top: 6px;
+  background-color: #33334a;
+  border: 1px solid #555;
+  border-radius: 6px;
+  color: #eee;
+  padding: 8px;
+  font-size: 14px;
+  font-family: inherit;
+  resize: vertical;
+}
+
+textarea {
+  min-height: 80px;
+  width: 100%;
+}
+
+.description {
+  margin-top: 4px;
+  font-size: 12px;
+  color: #777;
+}
+
+.instructions {
+  display: flex;
+  flex-direction: column;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+.buttonCancel {
+  background: #444455;
+  color: #ccc;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.buttonCancel:hover {
+  background: #555577;
+}
+
+.buttonSave {
+  background: linear-gradient(90deg, #8a30ff, #a75fff);
+  color: #fff;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 6px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.buttonSave:hover {
+  background: linear-gradient(90deg, #a75fff, #bf9fff);
+}
+
+@media (max-width: 600px) {
+  .row {
+    flex-direction: column;
+    gap: 12px;
+  }
+  .fieldCheckbox {
+    min-width: 100%;
+  }
+}

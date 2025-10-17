@@ -1,0 +1,67 @@
+.header {
+  background: linear-gradient(135deg, #1f1f1f, #2a2a2a);
+  padding: 1rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.header__container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header__logo img {
+  height: 40px;
+  transition: transform 0.3s ease;
+}
+
+.header__logo:hover img {
+  transform: scale(1.1);
+}
+
+.header__nav {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.header__link {
+  color: #eee;
+  text-decoration: none;
+  font-size: 1rem;
+  position: relative;
+  transition: color 0.3s;
+}
+
+.header__link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #8a30ff, #a75fff);
+  transition: width 0.3s ease;
+  border-radius: 2px;
+}
+
+.header__link:hover {
+  color: #a75fff;
+}
+
+.header__link:hover::after {
+  width: 100%;
+}
+
+/* Адаптив */
+@media (max-width: 768px) {
+  .header__nav {
+    gap: 1rem;
+  }
+  .header__logo img {
+    height: 32px;
+  }
+}
