@@ -126,3 +126,44 @@ h2 {
   background: linear-gradient(90deg, #1d4a8a, #3a6ebf);
   transform: translateY(1px);
 }
+
+.voiceInputContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.voiceInputButtons {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+
+.voiceInputButtons button {
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: 600;
+  background: linear-gradient(90deg, #8a30ff, #a75fff);
+  border: none;
+  border-radius: 24px;
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  user-select: none;
+}
+
+.voiceInputButtons button:hover {
+  background: linear-gradient(90deg, #a75fff, #bf9fff);
+}
+
+.voiceInputButtons button:active {
+  background: linear-gradient(90deg, #7730cc, #8047e6);
+  box-shadow: 0 2px 4px rgba(167, 95, 255, 0.3);
+  transform: translateY(1px);
+}
+
+.voiceListeningStatus {
+  font-style: italic;
+  color: #9a9eff;
+  font-size: 14px;
+}

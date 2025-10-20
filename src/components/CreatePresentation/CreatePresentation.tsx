@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import { useEffect } from 'react';
+import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
 
 import UploadForm from "../UploadForm/UploadForm";
 import AdvancedSettings from '../AdvancedSettings/AdvancedSettings';
@@ -39,6 +41,25 @@ function CreatePresentation() {
 
   const [showAdvanced, setShowAdvanced] = useState(false);
   const [advancedSettings, setAdvancedSettings] = useState<AdvancedSettingsType>(DEFAULT_ADVANCED_SETTINGS);
+
+  // Голосовое распознавание
+  const {
+    transcript,
+    listening,
+    resetTranscript,
+    browserSupportsSpeechRecognition
+  } = useSpeechRecognition();
+
+  // При изменении transcript обновляем prompt
+  useEffect(() => {
+    if (transcript) {
+      setPrompt(transcript);
+    }
+  }, [transcript]);
+
+  if (!browserSupportsSpeechRecognition) {
+    return <div>Ваш браузер не поддерживает распознавание речи.</div>;
+  }
 
   // Открыть модалку
   const openAdvanced = () => setShowAdvanced(true);
@@ -86,6 +107,22 @@ function CreatePresentation() {
           rows={4}
         />
       </label>
+
+      <div className={styles.voiceInputContainer}>
+        <div className={styles.voiceInputButtons}>
+          <button onClick={() => SpeechRecognition.startListening({ continuous: true, language })}>
+            Начать говорить
+          </button>
+          <button onClick={SpeechRecognition.stopListening}>Стоп</button>
+          <button onClick={() => {
+            resetTranscript();
+            setPrompt('');
+          }}>
+            Очистить голосовой ввод
+          </button>
+        </div>
+        <p className={styles.voiceListeningStatus}>{listening ? 'Слушаю...' : ''}</p>
+      </div>
 
       <label className={styles.label}>
         Целевая аудитория презентации
